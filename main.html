@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>Fullscreen Video</title>
+<style type="text/css">
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    .scare {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 1;
+    }
+
+    video#video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    video#video::-webkit-media-controls-enclosure {
+        display: none !important;
+    }
+</style>
+</head>
+<body>
+<div class="scare">
+    <video id="video" class="video" src="media/video.mp4" autoplay loop muted></video>
+</div>
+<script type="text/javascript">
+    const video = document.getElementById("video");
+
+    // Activar pantalla completa al cargar la página
+    function goFullScreen() {
+        const { documentElement } = document;
+        if (documentElement.requestFullscreen) {
+            documentElement.requestFullscreen();
+        } else if (documentElement.mozRequestFullScreen) { // Firefox
+            documentElement.mozRequestFullScreen();
+        } else if (documentElement.webkitRequestFullscreen) { // Safari
+            documentElement.webkitRequestFullscreen();
+        } else if (documentElement.msRequestFullscreen) { // IE/Edge
+            documentElement.msRequestFullscreen();
+        }
+    }
+
+    // Confirmación al intentar cerrar la página
+    window.onbeforeunload = function () {
+        return "¿Estás seguro de que deseas salir de esta página?";
+    };
+
+    // Iniciar pantalla completa y reproducir video automáticamente al cargar
+    window.onload = function () {
+        goFullScreen();
+        video.play();
+    };
+
+    // Hacer clic en el video vuelve a activar pantalla completa si se sale
+    video.addEventListener("click", goFullScreen);
+</script>
+</body>
+</html>
