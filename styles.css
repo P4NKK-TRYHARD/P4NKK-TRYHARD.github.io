@@ -1,0 +1,27 @@
+body {
+      background-color: rgb(150, 88, 88);
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      border-radius: 10px;
+      border-color: black; 
+      text-align: center; 
+      color: #ffff;
+      margin-top: 30px;
+      line-height: 2;
+}
+h1 {
+   color: blue;
+    text-align: center;
+}
+button {
+    background-color: black;
+    color: #ffff;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+img {
+    display: block;
+    margin:  auto;
+}
