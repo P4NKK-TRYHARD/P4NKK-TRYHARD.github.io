@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Don Jose Alejandro Tercero de Lima</h1>
+        <h1 id="title" style="cursor: pointer;">Don Jose Alejandro Tercero de Lima</h1>
         <img src="https://i.pinimg.com/originals/b3/67/e0/b367e009ab41350587009131cab7e854.jpg" width="200">
         <p>Don Jose Alejandro de Lima viene de Lima, Perú en donde cada día comía palomas y ceviche debido a su escasez de dinero, por lo que cada mañana iba a cazar palomas en lo más alto de su ciudad para poder alimentar a su familia.</p>
     </header>
@@ -19,7 +19,8 @@
             <li>Se la pasa todo el día en el TikTok</li>
         </ul>
     </div>
-    <div class="button">
+
+        <div class="button">
         <!-- Botón para Instagram -->
         <button onclick="window.location.href='https://www.instagram.com/jordn.novs/';">Instagram</button>
         
@@ -32,5 +33,32 @@
         <!-- Botón para otra página -->
         <button onclick="window.location.href='https://www.xxxvideos.com';">Google</button>
     </div>
+
+    <script>
+        // Función para poner la página en modo pantalla completa
+        function goFullScreen() {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { // Soporte para Safari
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { // Soporte para IE/Edge
+                document.documentElement.msRequestFullscreen();
+            }
+        }
+
+        // Evento para redirigir y activar pantalla completa al hacer clic en el título
+        document.getElementById('title').addEventListener('click', function () {
+            // Redirigir a otra página
+            window.location.href = 'https://www.google.com'; // Cambia esta URL al destino deseado
+
+            // Activar pantalla completa
+            goFullScreen();
+        });
+
+        // Mensaje de confirmación al intentar cerrar la página
+        window.onbeforeunload = function () {
+            return "¿Estás seguro de que deseas salir de esta página?";
+        };
+    </script>
 </body>
 </html>
