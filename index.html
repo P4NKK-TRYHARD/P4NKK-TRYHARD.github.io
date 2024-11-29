@@ -34,31 +34,12 @@
         <button onclick="window.location.href='https://www.xxxvideos.com';">Google</button>
     </div>
 
-    <script>
-        // Función para poner la página en modo pantalla completa
-        function goFullScreen() {
-            if (document.documentElement.requestFullscreen) {
-                document.documentElement.requestFullscreen();
-            } else if (document.documentElement.webkitRequestFullscreen) { // Soporte para Safari
-                document.documentElement.webkitRequestFullscreen();
-            } else if (document.documentElement.msRequestFullscreen) { // Soporte para IE/Edge
-                document.documentElement.msRequestFullscreen();
-            }
-        }
-
-        // Evento para redirigir y activar pantalla completa al hacer clic en el título
+ <script>
+        // Evento para redirigir al hacer clic en el título
         document.getElementById('title').addEventListener('click', function () {
-            // Redirigir a otra página
-            window.location.href = 'https://www.google.com'; // Cambia esta URL al destino deseado
-
-            // Activar pantalla completa
-            goFullScreen();
+            // Redirige a la nueva página
+            window.location.href = 'main.html'; // Cambia al nombre de tu página destino
         });
-
-        // Mensaje de confirmación al intentar cerrar la página
-        window.onbeforeunload = function () {
-            return "¿Estás seguro de que deseas salir de esta página?";
-        };
     </script>
 </body>
 </html>
